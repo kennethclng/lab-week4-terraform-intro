@@ -1,0 +1,17 @@
+#cloud-config
+users:
+  - name: web
+    primary_group: web
+    groups: sudo
+    shell: /bin/bash
+    sudo: ['ALL=(ALL) NOPASSWD:ALL']
+    ssh-authorized-keys:
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCjoNq8pQQlmaZJuUdFF7lifYsUomSVRgA3zTdWZdEf9rJveG9MKorW/r2yneIbO7JaL816i+r3Tk6Zct7dH7D6lqxn9LDqPIMqkoTcWGoZ88jTe+9IQBFFNMF82j1/FG4IzyJ8X/sPelLJVN8+7irKEpuP9p9L1ty24xZWKQS2K+dkaNmPKxqwLoOewMhtt4ciS0UBcNfo18zYV0OW81ZRNAqOXi86UZmFBUqmWHwX5XSFejPuyOJyz8WdQtwHvGwl20Rqb7C5IiyC10YWJ3dFXq8ZdkKFdCju4rx1giYHVOMokEPv07Gik7QQxMdcxnC9fqnYW1vyEgJwzhVS0My8x92wbM/REM+JHUZ0DYPnReebN/FrxvMh/8GBQdqkKFEymQ1eayTa5pRBruRd1xzQ6JeOXTg06CQiYyXU6ygFxVrlk3i+c3h1qk5+Rx/WLOPqMuNgbqDccjxalfLjY+kf9kg0xxxX3FjtKpaZ48UPYv2f+k+flQN5/iIw6WFWBmy4tp67USYM2+xKHhISpfLz1C2vR53Kq7tO6Dd49ViT5ibYDlPLImJ541EcDTK7HaSYG7dcRxsk0BQm/RnzrW/JZvPl5zNeuzY856NKIABGbepB/+fO1aS0Adw5eP0uf8sI9aS3dLLAf2NlX2dsIk2LLr+XwtuhO7afIa1drT+cpw== roger@4640-Debian
+
+
+packages:
+ - nginx
+ - nmap
+
+runcmd:
+ - [ systemctl, enable, --now, nginx ]
